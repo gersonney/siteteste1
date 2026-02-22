@@ -1,95 +1,133 @@
 <!doctype html>
 <html lang="pt-BR" class="h-full">
  <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ADEGA IRMÃOS JG</title>
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="/_sdk/element_sdk.js"></script>
+  <!-- CABEÇALHO (HEAD) - Metadados e recursos carregados --> <!-- ===================================================================== --> <!-- Meta tag de codificação - Define UTF-8 para aceitar caracteres especiais -->
+  <meta charset="UTF-8"><!-- Meta tag viewport - Responsividade em dispositivos móveis -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Título da página mostrado na aba do navegador -->
+  <title>ADEGA IRMÃOS JG - Bebidas Premium com Entrega Rápida</title><!-- ===== FRAMEWORK DE ESTILOS ===== --> <!-- Tailwind CSS v3.4.17 - Biblioteca de classes CSS pré-fabricadas -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script><!-- ===== SDKs DO CANVA CODE ===== --> <!-- SDK de Elementos - Permite editar cores, fontes e tamanhos no painel Canva -->
+  <script src="/_sdk/element_sdk.js"></script><!-- SDK de Dados - Permite salvar dados em uma Planilha Canva -->
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script><!-- ===== FONTES EXTERNAS ===== --> <!-- Preconexão com Google Fonts para melhor performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
-  <style>body { box-sizing: border-box; }</style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- Fonts: Playfair Display (títulos elegantes) e Montserrat (corpo) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><!-- ===== ARQUIVOS LOCAIS ===== --> <!-- Arquivo CSS customizado com estilos e animações exclusivas -->
+  <link rel="stylesheet" href="styles.css"><!-- ===== ESTILOS INLINE BÁSICOS ===== -->
+  <style>
+    body { 
+      box-sizing: border-box; /* Cálculo de tamanho inclui padding e border */
+    }
+  </style>
  </head>
  <body class="h-full font-body">
-  <div id="app" class="h-full overflow-auto" style="background: linear-gradient(180deg, #1a0a0a 0%, #2d1810 50%, #1a0a0a 100%);"><!-- Header -->
+  <!-- CORPO DA PÁGINA (BODY) - Conteúdo visível --> <!-- ===================================================================== --> <!-- Container principal com altura 100% e scroll para conteúdo longo -->
+  <div id="app" class="h-full overflow-auto" style="background: linear-gradient(180deg, #1a0a0a 0%, #2d1810 50%, #1a0a0a 100%);">
+   <!-- ========================================================================
+         SEÇÃO: CABEÇALHO (HEADER)
+         Navegação fixa no topo com logo, menu e status da loja
+         ======================================================================== -->
    <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/70 border-b border-amber-900/30">
     <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+     <!-- Logo e Nome da Empresa (lado esquerdo) -->
      <div class="flex items-center gap-3">
+      <!-- Ícone circular com gradiente dourado -->
       <div class="w-12 h-12 rounded-full gradient-gold flex items-center justify-center">
-       <svg class="w-7 h-7 text-amber-900" viewbox="0 0 24 24" fill="currentColor"><path d="M12 2C11.5 2 11 2.19 10.59 2.59L7.29 5.88C6.5 6.67 6 7.71 6 8.83V19C6 20.66 7.34 22 9 22H15C16.66 22 18 20.66 18 19V8.83C18 7.71 17.5 6.67 16.71 5.88L13.41 2.59C13 2.19 12.5 2 12 2M12 4.83L14.59 7.41C14.85 7.68 15 8.04 15 8.41V9H9V8.41C9 8.04 9.15 7.68 9.41 7.41L12 4.83M9 11H15V13H9V11Z" />
+       <svg class="w-7 h-7 text-amber-900" viewbox="0 0 24 24" fill="currentColor">
+        <!-- Ícone de garrafa de vinho --> <path d="M12 2C11.5 2 11 2.19 10.59 2.59L7.29 5.88C6.5 6.67 6 7.71 6 8.83V19C6 20.66 7.34 22 9 22H15C16.66 22 18 20.66 18 19V8.83C18 7.71 17.5 6.67 16.71 5.88L13.41 2.59C13 2.19 12.5 2 12 2M12 4.83L14.59 7.41C14.85 7.68 15 8.04 15 8.41V9H9V8.41C9 8.04 9.15 7.68 9.41 7.41L12 4.83M9 11H15V13H9V11Z" />
        </svg>
-      </div>
+      </div><!-- Informações da Empresa -->
       <div>
-       <h1 id="header-company" class="font-display text-xl text-amber-100 tracking-wide">ADEGA IRMÃOS JG</h1>
+       <!-- Nome da empresa (editável via painel) -->
+       <h1 id="header-company" class="font-display text-xl text-amber-100 tracking-wide">ADEGA IRMÃOS JG</h1><!-- Slogan (editável via painel) -->
        <p id="header-slogan" class="text-xs text-amber-500/80">Qualidade e variedade em bebidas</p>
       </div>
-     </div>
-     <nav class="hidden md:flex items-center gap-8"><a href="#inicio" class="text-amber-200/80 hover:text-amber-400 transition-colors text-sm font-medium">Início</a> <a href="#produtos" class="text-amber-200/80 hover:text-amber-400 transition-colors text-sm font-medium">Produtos</a> <a href="#sobre" class="text-amber-200/80 hover:text-amber-400 transition-colors text-sm font-medium">Sobre</a> <a href="#contato" class="text-amber-200/80 hover:text-amber-400 transition-colors text-sm font-medium">Contato</a>
-     </nav><button id="mobile-menu-btn" class="md:hidden text-amber-400 p-2">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+     </div><!-- Menu de Navegação (visível apenas em desktop) -->
+     <nav class="hidden md:flex items-center gap-8">
+      <a href="#inicio" class="text-amber-200/80 hover:text-amber-400 transition-colors text-sm font-medium">Início</a> <a href="#produtos" class="text-amber-200/80 hover:text-amber-400 transition-colors text-sm font-medium">Produtos</a> <a href="#sobre" class="text-amber-200/80 hover:text-amber-400 transition-colors text-sm font-medium">Sobre</a> <a href="#contato" class="text-amber-200/80 hover:text-amber-400 transition-colors text-sm font-medium">Contato</a> <!-- Badge com Status da Loja --> <span id="store-status-badge" class="px-4 py-1 rounded-full text-xs font-bold bg-green-900/60 text-green-200">Aberto</span>
+     </nav><!-- Botão Menu Mobile (visível apenas em smartphone) --> <button id="mobile-menu-btn" class="md:hidden text-amber-400 p-2">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg></button>
-    </div><!-- Mobile Menu -->
+    </div><!-- Menu Mobile (aparece quando clica no botão hamburger) -->
     <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-t border-amber-900/30">
-     <nav class="flex flex-col p-4 gap-4"><a href="#inicio" class="text-amber-200/80 hover:text-amber-400 transition-colors text-sm font-medium">Início</a> <a href="#produtos" class="text-amber-200/80 hover:text-amber-400 transition-colors text-sm font-medium">Produtos</a> <a href="#sobre" class="text-amber-200/80 hover:text-amber-400 transition-colors text-sm font-medium">Sobre</a> <a href="#contato" class="text-amber-200/80 hover:text-amber-400 transition-colors text-sm font-medium">Contato</a>
+     <nav class="flex flex-col p-4 gap-4">
+      <a href="#inicio" class="text-amber-200/80 hover:text-amber-400 transition-colors text-sm font-medium">Início</a> <a href="#produtos" class="text-amber-200/80 hover:text-amber-400 transition-colors text-sm font-medium">Produtos</a> <a href="#sobre" class="text-amber-200/80 hover:text-amber-400 transition-colors text-sm font-medium">Sobre</a> <a href="#contato" class="text-amber-200/80 hover:text-amber-400 transition-colors text-sm font-medium">Contato</a>
      </nav>
     </div>
-   </header><!-- Hero Section -->
+   </header><!-- ========================================================================
+         SEÇÃO: HERO (BANNER PRINCIPAL)
+         Imagem/gradiente grande com chamada para ação
+         ======================================================================== -->
    <section id="inicio" class="relative min-h-screen flex items-center justify-center wine-pattern pt-20">
-    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/60"></div>
+    <!-- Gradiente de sobreposição para melhorar legibilidade do texto -->
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/60"></div><!-- Conteúdo centralizado do Hero -->
     <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+     <!-- Logo animado do Hero -->
      <div class="float-animation mb-8">
       <div class="w-32 h-32 mx-auto rounded-full gradient-gold flex items-center justify-center shadow-2xl">
-       <svg class="w-20 h-20 text-amber-900" viewbox="0 0 24 24" fill="currentColor"><path d="M12 2C11.5 2 11 2.19 10.59 2.59L7.29 5.88C6.5 6.67 6 7.71 6 8.83V19C6 20.66 7.34 22 9 22H15C16.66 22 18 20.66 18 19V8.83C18 7.71 17.5 6.67 16.71 5.88L13.41 2.59C13 2.19 12.5 2 12 2M12 4.83L14.59 7.41C14.85 7.68 15 8.04 15 8.41V9H9V8.41C9 8.04 9.15 7.68 9.41 7.41L12 4.83M9 11H15V13H9V11Z" />
+       <svg class="w-20 h-20 text-amber-900" viewbox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C11.5 2 11 2.19 10.59 2.59L7.29 5.88C6.5 6.67 6 7.71 6 8.83V19C6 20.66 7.34 22 9 22H15C16.66 22 18 20.66 18 19V8.83C18 7.71 17.5 6.67 16.71 5.88L13.41 2.59C13 2.19 12.5 2 12 2" />
        </svg>
       </div>
+     </div><!-- Título principal (editável via painel) -->
+     <h2 id="hero-title" class="font-display text-4xl md:text-6xl lg:text-7xl text-amber-100 mb-6 leading-tight">As melhores bebidas<br><span class="text-gradient">da região</span></h2><!-- Subtítulo (editável via painel) -->
+     <p id="hero-subtitle" class="text-lg md:text-xl text-amber-200/70 mb-10 max-w-2xl mx-auto">Entrega rápida e preços imbatíveis para você e sua família</p><!-- Botões de Ação -->
+     <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <!-- Botão primário - Ver Produtos --> <a href="#produtos" class="gradient-gold text-amber-900 font-bold px-8 py-4 rounded-full btn-glow transition-all hover:scale-105 text-lg"> Ver Produtos </a> <!-- Botão secundário - Fale Conosco --> <a href="#contato" class="border-2 border-amber-500 text-amber-400 font-bold px-8 py-4 rounded-full hover:bg-amber-500/10 transition-all text-lg"> Fale Conosco </a>
      </div>
-     <h2 id="hero-title" class="font-display text-4xl md:text-6xl lg:text-7xl text-amber-100 mb-6 leading-tight">As melhores bebidas<br><span class="text-gradient">da região</span></h2>
-     <p id="hero-subtitle" class="text-lg md:text-xl text-amber-200/70 mb-10 max-w-2xl mx-auto">Entrega rápida e preços imbatíveis para você e sua família</p>
-     <div class="flex flex-col sm:flex-row gap-4 justify-center"><a href="#produtos" class="gradient-gold text-amber-900 font-bold px-8 py-4 rounded-full btn-glow transition-all hover:scale-105 text-lg"> Ver Produtos </a> <a href="#contato" class="border-2 border-amber-500 text-amber-400 font-bold px-8 py-4 rounded-full hover:bg-amber-500/10 transition-all text-lg"> Fale Conosco </a>
-     </div>
-    </div>
+    </div><!-- Indicador de scroll (seta animada) -->
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-     <svg class="w-8 h-8 text-amber-500/60" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+     <svg class="w-8 h-8 text-amber-500/60" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
      </svg>
     </div>
-   </section><!-- Products Section -->
+   </section><!-- ========================================================================
+         SEÇÃO: PRODUTOS
+         Grid de produtos com filtro por categoria
+         ======================================================================== -->
    <section id="produtos" class="py-20 px-4">
     <div class="max-w-7xl mx-auto">
+     <!-- Cabeçalho da seção -->
      <div class="text-center mb-16">
       <h3 class="font-display text-3xl md:text-5xl text-amber-100 mb-4">Nossos Produtos</h3>
       <p class="text-amber-200/60 max-w-xl mx-auto">Seleção especial das melhores bebidas para todas as ocasiões</p>
-     </div><!-- Category Filter -->
-     <div class="flex flex-wrap justify-center gap-3 mb-12"><button class="category-btn active px-6 py-2 rounded-full text-sm font-medium transition-all bg-amber-500 text-amber-900" data-category="all">Todos</button> <button class="category-btn px-6 py-2 rounded-full text-sm font-medium transition-all bg-amber-900/30 text-amber-300 hover:bg-amber-500 hover:text-amber-900" data-category="cerveja">Cervejas</button> <button class="category-btn px-6 py-2 rounded-full text-sm font-medium transition-all bg-amber-900/30 text-amber-300 hover:bg-amber-500 hover:text-amber-900" data-category="destilado">Destilados</button> <button class="category-btn px-6 py-2 rounded-full text-sm font-medium transition-all bg-amber-900/30 text-amber-300 hover:bg-amber-500 hover:text-amber-900" data-category="refrigerante">Refrigerantes</button>
-     </div><!-- Products Grid -->
+     </div><!-- Botões de Filtro por Categoria -->
+     <div class="flex flex-wrap justify-center gap-3 mb-12">
+      <!-- Todos os produtos (ativo por padrão) --> <button class="category-btn active px-6 py-2 rounded-full text-sm font-medium transition-all bg-amber-500 text-amber-900" data-category="all"> Todos </button> <!-- Filtro Cervejas --> <button class="category-btn px-6 py-2 rounded-full text-sm font-medium transition-all bg-amber-900/30 text-amber-300 hover:bg-amber-500 hover:text-amber-900" data-category="cerveja"> Cervejas </button> <!-- Filtro Destilados --> <button class="category-btn px-6 py-2 rounded-full text-sm font-medium transition-all bg-amber-900/30 text-amber-300 hover:bg-amber-500 hover:text-amber-900" data-category="destilado"> Destilados </button> <!-- Filtro Refrigerantes --> <button class="category-btn px-6 py-2 rounded-full text-sm font-medium transition-all bg-amber-900/30 text-amber-300 hover:bg-amber-500 hover:text-amber-900" data-category="refrigerante"> Refrigerantes </button>
+     </div><!-- Grid de Produtos (preenchido dinamicamente pelo JavaScript) -->
      <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Os produtos são inseridos aqui por app.js -->
      </div>
     </div>
-   </section><!-- Features Section -->
+   </section><!-- ========================================================================
+         SEÇÃO: DESTAQUES / FEATURES
+         Três cards com vantagens da loja
+         ======================================================================== -->
    <section class="py-20 px-4 bg-gradient-to-b from-transparent via-amber-950/20 to-transparent">
     <div class="max-w-6xl mx-auto">
      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Feature 1: Entrega Rápida -->
       <div class="text-center p-8 rounded-2xl bg-gradient-to-br from-amber-900/20 to-transparent border border-amber-800/30 card-hover">
        <div class="w-16 h-16 mx-auto mb-6 rounded-full gradient-gold flex items-center justify-center">
-        <svg class="w-8 h-8 text-amber-900" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        <svg class="w-8 h-8 text-amber-900" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
        </div>
        <h4 class="font-display text-xl text-amber-100 mb-3">Entrega Rápida</h4>
        <p class="text-amber-200/60 text-sm">Receba suas bebidas geladas em tempo recorde</p>
-      </div>
+      </div><!-- Feature 2: Melhor Preço -->
       <div class="text-center p-8 rounded-2xl bg-gradient-to-br from-amber-900/20 to-transparent border border-amber-800/30 card-hover">
        <div class="w-16 h-16 mx-auto mb-6 rounded-full gradient-gold flex items-center justify-center">
-        <svg class="w-8 h-8 text-amber-900" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <svg class="w-8 h-8 text-amber-900" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
        </div>
        <h4 class="font-display text-xl text-amber-100 mb-3">Melhor Preço</h4>
        <p class="text-amber-200/60 text-sm">Preços competitivos e promoções exclusivas</p>
-      </div>
+      </div><!-- Feature 3: Qualidade Garantida -->
       <div class="text-center p-8 rounded-2xl bg-gradient-to-br from-amber-900/20 to-transparent border border-amber-800/30 card-hover">
        <div class="w-16 h-16 mx-auto mb-6 rounded-full gradient-gold flex items-center justify-center">
-        <svg class="w-8 h-8 text-amber-900" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <svg class="w-8 h-8 text-amber-900" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
        </div>
        <h4 class="font-display text-xl text-amber-100 mb-3">Qualidade Garantida</h4>
@@ -97,14 +135,18 @@
       </div>
      </div>
     </div>
-   </section><!-- About Section -->
+   </section><!-- ========================================================================
+         SEÇÃO: SOBRE A EMPRESA
+         Informações sobre a loja com estatísticas
+         ======================================================================== -->
    <section id="sobre" class="py-20 px-4">
     <div class="max-w-6xl mx-auto">
      <div class="grid md:grid-cols-2 gap-12 items-center">
+      <!-- Coluna Esquerda: Texto sobre a empresa -->
       <div>
        <h3 class="font-display text-3xl md:text-4xl text-amber-100 mb-6">Sobre a <span class="text-gradient">ADEGA IRMÃOS JG</span></h3>
        <p class="text-amber-200/70 mb-6 leading-relaxed">Somos uma distribuidora de bebidas comprometida em oferecer os melhores produtos com preços justos e atendimento de qualidade.</p>
-       <p class="text-amber-200/70 mb-8 leading-relaxed">Nossa missão é levar até você as melhores bebidas do mercado, com entrega rápida e atendimento personalizado. Trabalhamos com as principais marcas nacionais e importadas.</p>
+       <p class="text-amber-200/70 mb-8 leading-relaxed">Nossa missão é levar até você as melhores bebidas do mercado, com entrega rápida e atendimento personalizado. Trabalhamos com as principais marcas nacionais e importadas.</p><!-- Estatísticas -->
        <div class="flex gap-8">
         <div>
          <p class="font-display text-3xl text-amber-400">500+</p>
@@ -119,13 +161,15 @@
          <p class="text-amber-200/60 text-sm">Avaliação</p>
         </div>
        </div>
-      </div>
+      </div><!-- Coluna Direita: Imagem/Ilustração -->
       <div class="relative">
        <div class="aspect-square rounded-3xl bg-gradient-to-br from-amber-900/40 to-amber-950/60 border border-amber-800/30 flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 wine-pattern opacity-30"></div>
+        <!-- Padrão de fundo -->
+        <div class="absolute inset-0 wine-pattern opacity-30"></div><!-- Conteúdo da imagem -->
         <div class="relative text-center p-8">
          <div class="w-40 h-40 mx-auto rounded-full gradient-gold flex items-center justify-center mb-6">
-          <svg class="w-24 h-24 text-amber-900" viewbox="0 0 24 24" fill="currentColor"><path d="M12 2C11.5 2 11 2.19 10.59 2.59L7.29 5.88C6.5 6.67 6 7.71 6 8.83V19C6 20.66 7.34 22 9 22H15C16.66 22 18 20.66 18 19V8.83C18 7.71 17.5 6.67 16.71 5.88L13.41 2.59C13 2.19 12.5 2 12 2M12 4.83L14.59 7.41C14.85 7.68 15 8.04 15 8.41V9H9V8.41C9 8.04 9.15 7.68 9.41 7.41L12 4.83M9 11H15V13H9V11Z" />
+          <svg class="w-24 h-24 text-amber-900" viewbox="0 0 24 24" fill="currentColor">
+           <path d="M12 2C11.5 2 11 2.19 10.59 2.59L7.29 5.88C6.5 6.67 6 7.71 6 8.83V19C6 20.66 7.34 22 9 22H15C16.66 22 18 20.66 18 19V8.83C18 7.71 17.5 6.67 16.71 5.88L13.41 2.59C13 2.19 12.5 2 12 2" />
           </svg>
          </div>
          <p class="font-display text-2xl text-amber-100">Tradição &amp; Qualidade</p>
@@ -134,38 +178,47 @@
       </div>
      </div>
     </div>
-   </section><!-- Contact Section -->
+   </section><!-- ========================================================================
+         SEÇÃO: CONTATO
+         Formulário de contato + informações de contato
+         ======================================================================== -->
    <section id="contato" class="py-20 px-4 bg-gradient-to-b from-transparent via-amber-950/30 to-transparent">
     <div class="max-w-4xl mx-auto">
+     <!-- Cabeçalho da seção -->
      <div class="text-center mb-12">
       <h3 class="font-display text-3xl md:text-4xl text-amber-100 mb-4">Entre em Contato</h3>
       <p class="text-amber-200/60">Faça seu pedido ou tire suas dúvidas</p>
      </div>
      <div class="grid md:grid-cols-2 gap-8">
+      <!-- Coluna Esquerda: Informações de Contato -->
       <div class="space-y-6">
+       <!-- Card Telefone -->
        <div class="flex items-start gap-4 p-6 rounded-2xl bg-amber-900/20 border border-amber-800/30">
         <div class="w-12 h-12 rounded-full gradient-gold flex items-center justify-center flex-shrink-0">
-         <svg class="w-6 h-6 text-amber-900" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+         <svg class="w-6 h-6 text-amber-900" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
          </svg>
         </div>
         <div>
          <h4 class="font-semibold text-amber-100 mb-1">Telefone / WhatsApp</h4>
          <p id="contact-phone" class="text-amber-400">(00) 00000-0000</p>
         </div>
-       </div>
+       </div><!-- Card Endereço -->
        <div class="flex items-start gap-4 p-6 rounded-2xl bg-amber-900/20 border border-amber-800/30">
         <div class="w-12 h-12 rounded-full gradient-gold flex items-center justify-center flex-shrink-0">
-         <svg class="w-6 h-6 text-amber-900" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+         <svg class="w-6 h-6 text-amber-900" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
          </svg>
         </div>
         <div>
          <h4 class="font-semibold text-amber-100 mb-1">Endereço</h4>
          <p id="contact-address" class="text-amber-200/70">Seu endereço aqui</p>
         </div>
-       </div>
+       </div><!-- Card Horário -->
        <div class="flex items-start gap-4 p-6 rounded-2xl bg-amber-900/20 border border-amber-800/30">
         <div class="w-12 h-12 rounded-full gradient-gold flex items-center justify-center flex-shrink-0">
-         <svg class="w-6 h-6 text-amber-900" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+         <svg class="w-6 h-6 text-amber-900" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
          </svg>
         </div>
         <div>
@@ -174,82 +227,165 @@
            Dom: 9h às 18h</p>
         </div>
        </div>
-      </div>
+      </div><!-- Coluna Direita: Formulário de Contato -->
       <form id="contact-form" class="space-y-4">
-       <div><label for="name" class="block text-amber-200/80 text-sm mb-2">Nome</label> <input type="text" id="name" class="w-full px-4 py-3 rounded-xl bg-amber-950/50 border border-amber-800/50 text-amber-100 placeholder-amber-200/40 focus:outline-none focus:border-amber-500 transition-colors" placeholder="Seu nome">
-       </div>
-       <div><label for="phone-input" class="block text-amber-200/80 text-sm mb-2">Telefone</label> <input type="tel" id="phone-input" class="w-full px-4 py-3 rounded-xl bg-amber-950/50 border border-amber-800/50 text-amber-100 placeholder-amber-200/40 focus:outline-none focus:border-amber-500 transition-colors" placeholder="(00) 00000-0000">
-       </div>
-       <div><label for="message" class="block text-amber-200/80 text-sm mb-2">Mensagem</label> <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-xl bg-amber-950/50 border border-amber-800/50 text-amber-100 placeholder-amber-200/40 focus:outline-none focus:border-amber-500 transition-colors resize-none" placeholder="Sua mensagem ou pedido..."></textarea>
-       </div><button type="submit" class="w-full gradient-gold text-amber-900 font-bold py-4 rounded-xl btn-glow transition-all hover:scale-[1.02] text-lg"> Enviar Mensagem </button>
+       <!-- Campo Nome -->
+       <div>
+        <label for="name" class="block text-amber-200/80 text-sm mb-2">Nome</label> <input type="text" id="name" class="w-full px-4 py-3 rounded-xl bg-amber-950/50 border border-amber-800/50 text-amber-100 placeholder-amber-200/40 focus:outline-none focus:border-amber-500 transition-colors" placeholder="Seu nome">
+       </div><!-- Campo Telefone -->
+       <div>
+        <label for="phone-input" class="block text-amber-200/80 text-sm mb-2">Telefone</label> <input type="tel" id="phone-input" class="w-full px-4 py-3 rounded-xl bg-amber-950/50 border border-amber-800/50 text-amber-100 placeholder-amber-200/40 focus:outline-none focus:border-amber-500 transition-colors" placeholder="(00) 00000-0000">
+       </div><!-- Campo Mensagem -->
+       <div>
+        <label for="message" class="block text-amber-200/80 text-sm mb-2">Mensagem</label> <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-xl bg-amber-950/50 border border-amber-800/50 text-amber-100 placeholder-amber-200/40 focus:outline-none focus:border-amber-500 transition-colors resize-none" placeholder="Sua mensagem ou pedido..."></textarea>
+       </div><!-- Botão Enviar --> <button type="submit" class="w-full gradient-gold text-amber-900 font-bold py-4 rounded-xl btn-glow transition-all hover:scale-[1.02] text-lg"> Enviar Mensagem </button> <!-- Mensagem de Sucesso (aparece após enviar) -->
        <p id="form-success" class="hidden text-center text-green-400 py-2">✓ Mensagem enviada com sucesso!</p>
       </form>
      </div>
     </div>
-   </section><!-- Footer -->
+   </section><!-- ========================================================================
+         SEÇÃO: RODAPÉ (FOOTER)
+         Informações finais e copyright
+         ======================================================================== -->
    <footer class="py-8 px-4 border-t border-amber-900/30">
     <div class="max-w-6xl mx-auto text-center">
+     <!-- Logo e Nome -->
      <div class="flex items-center justify-center gap-3 mb-4">
       <div class="w-10 h-10 rounded-full gradient-gold flex items-center justify-center">
-       <svg class="w-6 h-6 text-amber-900" viewbox="0 0 24 24" fill="currentColor"><path d="M12 2C11.5 2 11 2.19 10.59 2.59L7.29 5.88C6.5 6.67 6 7.71 6 8.83V19C6 20.66 7.34 22 9 22H15C16.66 22 18 20.66 18 19V8.83C18 7.71 17.5 6.67 16.71 5.88L13.41 2.59C13 2.19 12.5 2 12 2" />
+       <svg class="w-6 h-6 text-amber-900" viewbox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C11.5 2 11 2.19 10.59 2.59L7.29 5.88C6.5 6.67 6 7.71 6 8.83V19C6 20.66 7.34 22 9 22H15C16.66 22 18 20.66 18 19V8.83C18 7.71 17.5 6.67 16.71 5.88L13.41 2.59C13 2.19 12.5 2 12 2" />
        </svg>
       </div><span id="footer-company" class="font-display text-xl text-amber-100">ADEGA IRMÃOS JG</span>
-     </div>
-     <p class="text-amber-200/50 text-sm">© 2024 Todos os direitos reservados</p>
+     </div><!-- Copyright -->
+     <p class="text-amber-200/50 text-sm">© 2024 Todos os direitos reservados</p><!-- Aviso Legal -->
      <p class="text-amber-200/30 text-xs mt-2">Beba com moderação. Venda proibida para menores de 18 anos.</p>
     </div>
    </footer>
-  </div><!-- Shopping Cart -->
-  <div id="cart-container" class="fixed bottom-8 right-8 z-40"><button id="cart-btn" class="w-16 h-16 rounded-full gradient-gold flex items-center justify-center shadow-2xl hover:scale-110 transition-transform btn-glow">
-    <svg class="w-8 h-8 text-amber-900" fill="currentColor" viewbox="0 0 24 24"><path d="M7 4V3a1 1 0 011-1h1a1 1 0 011 1v1h8V3a1 1 0 011-1h1a1 1 0 011 1v1h2a2 2 0 012 2v2H5V6a2 2 0 012-2h2zm0 0h10m-4 6v6m-2-6v6M5 10h14v8a2 2 0 01-2 2H7a2 2 0 01-2-2v-8z" />
-    </svg><span id="cart-count" class="absolute top-0 right-0 w-6 h-6 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center">0</span> </button>
-  </div><!-- Cart Sidebar -->
+  </div><!-- Fim da div app --> <!-- ========================================================================
+       COMPONENTE: BOTÃO FLUTUANTE DO CARRINHO
+       Ícone redondo fixo no canto inferior direito
+       ======================================================================== -->
+  <div id="cart-container" class="fixed bottom-8 right-8 z-40">
+   <button id="cart-btn" class="w-16 h-16 rounded-full gradient-gold flex items-center justify-center shadow-2xl hover:scale-110 transition-transform btn-glow"> <!-- Ícone de carrinho de compras -->
+    <svg class="w-8 h-8 text-amber-900" fill="currentColor" viewbox="0 0 24 24">
+     <path d="M7 4V3a1 1 0 011-1h1a1 1 0 011 1v1h8V3a1 1 0 011-1h1a1 1 0 011 1v1h2a2 2 0 012 2v2H5V6a2 2 0 012-2h2zm0 0h10m-4 6v6m-2-6v6M5 10h14v8a2 2 0 01-2 2H7a2 2 0 01-2-2v-8z" />
+    </svg><!-- Badge com quantidade de itens no carrinho --> <span id="cart-count" class="absolute top-0 right-0 w-6 h-6 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center"> 0 </span> </button>
+  </div><!-- ========================================================================
+       COMPONENTE: SIDEBAR DO CARRINHO
+       Painel lateral que desliza da direita para mostrar itens do carrinho
+       ======================================================================== -->
   <div id="cart-sidebar" class="fixed right-0 top-0 h-full w-80 bg-black/95 border-l border-amber-800/50 shadow-2xl transform translate-x-full transition-transform z-50 flex flex-col">
+   <!-- Cabeçalho do Carrinho -->
    <div class="p-6 border-b border-amber-800/30 flex items-center justify-between">
-    <h2 class="font-display text-2xl text-amber-100">Carrinho</h2><button id="cart-close" class="text-amber-400 hover:text-amber-300 transition-colors">
-     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    <h2 class="font-display text-2xl text-amber-100">Carrinho</h2><!-- Botão Fechar Carrinho --> <button id="cart-close" class="text-amber-400 hover:text-amber-300 transition-colors">
+     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
      </svg></button>
-   </div>
+   </div><!-- Lista de Itens do Carrinho (preenchida dinamicamente pelo JavaScript) -->
    <div id="cart-items" class="flex-1 overflow-auto p-6 space-y-4">
-   </div>
+    <!-- Os itens do carrinho aparecem aqui -->
+   </div><!-- Rodapé do Carrinho - Resumo e Botões de Ação -->
    <div class="border-t border-amber-800/30 p-6 space-y-4">
-    <div class="flex justify-between items-center text-lg"><span class="text-amber-200">Total:</span> <span id="cart-total" class="text-2xl font-bold text-amber-400">R$ 0,00</span>
-    </div><button id="cart-checkout" class="w-full gradient-gold text-amber-900 font-bold py-3 rounded-xl btn-glow transition-all hover:scale-105"> Finalizar Compra </button> <button id="cart-clear" class="w-full border-2 border-amber-500/50 text-amber-400 font-bold py-3 rounded-xl hover:bg-amber-500/10 transition-all"> Limpar Carrinho </button>
+    <!-- Resumo de Preços -->
+    <div class="space-y-2 text-sm">
+     <div class="flex justify-between text-amber-200">
+      <span>Subtotal:</span> <span id="cart-subtotal">R$ 0,00</span>
+     </div>
+     <div class="flex justify-between text-amber-200">
+      <span>Entrega:</span> <span id="cart-delivery">R$ 10,00</span>
+     </div>
+    </div><!-- Total -->
+    <div class="flex justify-between items-center text-lg border-t border-amber-800/30 pt-4">
+     <span class="text-amber-200">Total:</span> <span id="cart-total" class="text-2xl font-bold text-amber-400">R$ 0,00</span>
+    </div><!-- Botão Finalizar Compra --> <button id="cart-checkout" class="w-full gradient-gold text-amber-900 font-bold py-3 rounded-xl btn-glow transition-all hover:scale-105"> Finalizar Compra </button> <!-- Botão Limpar Carrinho --> <button id="cart-clear" class="w-full border-2 border-amber-500/50 text-amber-400 font-bold py-3 rounded-xl hover:bg-amber-500/10 transition-all"> Limpar Carrinho </button>
    </div>
-  </div><!-- Cart Overlay -->
-  <div id="cart-overlay" class="fixed inset-0 bg-black/50 z-40 hidden" onclick="closeCart()"></div>
-  <script>
-    const defaultConfig = {
-      company_name: 'ADEGA IRMÃOS JG',
-      slogan: 'Qualidade e variedade em bebidas',
-      phone: '(00) 00000-0000',
-      address: 'Seu endereço aqui',
-      hero_title: 'As melhores bebidas da região',
-      hero_subtitle: 'Entrega rápida e preços imbatíveis para você e sua família',
-      primary_color: '#D4AF37',
-      secondary_color: '#1a0a0a',
-      text_color: '#fef3c7',
-      accent_color: '#92400e',
-      button_color: '#f59e0b',
-      font_family: 'Montserrat',
-      font_size: 16
-    };
-
-    const products = [
-      { id: 1, name: 'Cerveja Pilsen', category: 'cerveja', price: 'R$ 4,99', image: 'imagens/cerveja-pilsen.jpg' },
-      { id: 2, name: 'Cerveja IPA', category: 'cerveja', price: 'R$ 12,99', image: 'imagens/cerveja-ipa.jpg' },
-      { id: 3, name: 'Cerveja Weiss', category: 'cerveja', price: 'R$ 9,99', image: 'imagens/cerveja-weiss.jpg' },
-      { id: 4, name: 'Whisky 12 anos', category: 'destilado', price: 'R$ 129,90', image: 'imagens/whisky.jpg' },
-      { id: 5, name: 'Vodka Premium', category: 'destilado', price: 'R$ 69,90', image: 'imagens/vodka.jpg' },
-      { id: 6, name: 'Cachaça Artesanal', category: 'destilado', price: 'R$ 24,90', image: 'imagens/cachaca.jpg' },
-      { id: 7, name: 'Coca-Cola 2L', category: 'refrigerante', price: 'R$ 9,99', image: 'imagens/coca-cola.jpg' },
-      { id: 8, name: 'Guaraná 2L', category: 'refrigerante', price: 'R$ 7,99', image: 'imagens/guarana.jpg' },
-      { id: 9, name: 'Água Mineral', category: 'refrigerante', price: 'R$ 2,99', image: 'imagens/agua-mineral.jpg' },
-    ];
-
-
-
-  </script>
+  </div><!-- Overlay do Carrinho - Fundo escuro que fecha o carrinho ao clicar -->
+  <div id="cart-overlay" class="fixed inset-0 bg-black/50 z-40 hidden" onclick="closeCart()"></div><!-- ========================================================================
+       MODAL DE CHECKOUT
+       Tela de pagamento com opções PIX, Cartão e Débito
+       ======================================================================== -->
+  <div id="checkout-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-auto">
+   <!-- Container do Modal - Centralizado com largura máxima -->
+   <div class="bg-gradient-to-b from-amber-950 to-black border border-amber-800/50 rounded-2xl max-w-2xl w-full shadow-2xl max-h-[90vh] overflow-auto">
+    <!-- Cabeçalho do Modal -->
+    <div class="sticky top-0 bg-black/80 border-b border-amber-800/30 p-6 flex items-center justify-between">
+     <h2 class="font-display text-2xl text-amber-100">Finalizar Pedido</h2><!-- Botão para fechar o modal --> <button id="checkout-close" class="text-amber-400 hover:text-amber-300 transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg></button>
+    </div><!-- Conteúdo do Modal -->
+    <div class="p-6 space-y-6">
+     <!-- SEÇÃO 1: RESUMO DO PEDIDO -->
+     <div class="space-y-3 pb-6 border-b border-amber-800/30">
+      <h3 class="font-semibold text-amber-200 text-lg">📦 Resumo do Pedido</h3>
+      <div class="bg-amber-900/20 rounded-lg p-4 space-y-2">
+       <div class="flex justify-between text-amber-100">
+        <span>Subtotal:</span> <span id="checkout-subtotal">R$ 0,00</span>
+       </div>
+       <div class="flex justify-between text-amber-100">
+        <span>Taxa de Entrega:</span> <span id="checkout-delivery">R$ 10,00</span>
+       </div>
+       <div class="border-t border-amber-800/30 pt-2 flex justify-between text-lg font-bold text-amber-400">
+        <span>TOTAL:</span> <span id="checkout-total">R$ 0,00</span>
+       </div>
+      </div>
+     </div><!-- SEÇÃO 2: DADOS PESSOAIS DO CLIENTE -->
+     <div class="space-y-3 pb-6 border-b border-amber-800/30">
+      <h3 class="font-semibold text-amber-200 text-lg">👤 Dados Pessoais</h3><!-- Campo Nome -->
+      <div>
+       <label for="customer-name" class="block text-amber-200/80 text-sm mb-2">Nome Completo</label> <input type="text" id="customer-name" class="w-full px-4 py-3 rounded-lg bg-amber-950/50 border border-amber-800/50 text-amber-100 placeholder-amber-200/40 focus:outline-none focus:border-amber-500 transition-colors" placeholder="Seu nome completo">
+      </div><!-- Campo Email -->
+      <div>
+       <label for="customer-email" class="block text-amber-200/80 text-sm mb-2">Email</label> <input type="email" id="customer-email" class="w-full px-4 py-3 rounded-lg bg-amber-950/50 border border-amber-800/50 text-amber-100 placeholder-amber-200/40 focus:outline-none focus:border-amber-500 transition-colors" placeholder="seu.email@exemplo.com">
+      </div><!-- Campo Endereço de Entrega -->
+      <div>
+       <label for="customer-address" class="block text-amber-200/80 text-sm mb-2">Endereço de Entrega</label> <input type="text" id="customer-address" class="w-full px-4 py-3 rounded-lg bg-amber-950/50 border border-amber-800/50 text-amber-100 placeholder-amber-200/40 focus:outline-none focus:border-amber-500 transition-colors" placeholder="Rua, número, bairro, cidade">
+      </div>
+     </div><!-- SEÇÃO 3: FORMA DE PAGAMENTO -->
+     <div class="space-y-3 pb-6 border-b border-amber-800/30">
+      <h3 class="font-semibold text-amber-200 text-lg">💳 Forma de Pagamento</h3><!-- Campo invisível para armazenar seleção --> <input type="hidden" id="selected-payment" value=""> <!-- Opção 1: PIX --> <button type="button" class="payment-option w-full text-left p-4 rounded-lg bg-amber-900/20 border-2 border-amber-800/30 hover:border-amber-500/50 transition-all cursor-pointer" data-method="pix" onclick="selectPaymentMethod('pix')">
+       <div class="flex items-start gap-3">
+        <div class="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+         <span class="text-lg">📱</span>
+        </div>
+        <div class="flex-1">
+         <h4 class="font-semibold text-amber-100 mb-1">PIX à Vista</h4>
+         <p class="text-amber-200/60 text-sm">Pagamento instantâneo - 5% de desconto!</p>
+        </div>
+       </div></button> <!-- Opção 2: Cartão de Crédito --> <button type="button" class="payment-option w-full text-left p-4 rounded-lg bg-amber-900/20 border-2 border-amber-800/30 hover:border-amber-500/50 transition-all cursor-pointer" data-method="credit" onclick="selectPaymentMethod('credit')">
+       <div class="flex items-start gap-3">
+        <div class="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+         <span class="text-lg">💳</span>
+        </div>
+        <div class="flex-1">
+         <h4 class="font-semibold text-amber-100 mb-1">Cartão de Crédito</h4>
+         <p class="text-amber-200/60 text-sm">Até 4 parcelas sem juros (acima de R$ 200)</p>
+        </div>
+       </div></button> <!-- Opção 3: Débito --> <button type="button" class="payment-option w-full text-left p-4 rounded-lg bg-amber-900/20 border-2 border-amber-800/30 hover:border-amber-500/50 transition-all cursor-pointer" data-method="debit" onclick="selectPaymentMethod('debit')">
+       <div class="flex items-start gap-3">
+        <div class="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+         <span class="text-lg">🏦</span>
+        </div>
+        <div class="flex-1">
+         <h4 class="font-semibold text-amber-100 mb-1">Débito à Vista</h4>
+         <p class="text-amber-200/60 text-sm">Debitado diretamente da sua conta</p>
+        </div>
+       </div></button> <!-- Área para mostrar opções de parcelamento -->
+      <div id="payment-installments" class="text-amber-300 text-sm p-3 bg-amber-900/10 rounded-lg">
+       <!-- Conteúdo dinâmico adicionado pelo JavaScript -->
+      </div>
+     </div><!-- SEÇÃO 4: VERIFICAÇÃO - Lembrete de Status da Loja -->
+     <div class="p-4 rounded-lg bg-blue-900/20 border border-blue-800/30">
+      <p class="text-blue-200 text-sm"><span class="font-semibold">ℹ️ Lembrete:</span> A loja deve estar aberta para realizar pedidos. <br>
+        Status atual: <span id="checkout-store-status" class="font-bold">Verificando...</span></p>
+     </div>
+    </div><!-- Rodapé do Modal - Botões de Ação -->
+    <div class="sticky bottom-0 bg-black/80 border-t border-amber-800/30 p-6 flex gap-3">
+     <!-- Botão Cancelar --> <button onclick="closeCheckout()" class="flex-1 py-3 rounded-lg border-2 border-amber-500/50 text-amber-400 font-bold hover:bg-amber-500/10 transition-all"> Cancelar </button> <!-- Botão Confirmar Pedido --> <button id="confirm-payment" onclick="processPayment()" class="flex-1 py-3 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 text-amber-900 font-bold hover:from-amber-400 hover:to-amber-500 transition-all shadow-lg hover:shadow-amber-500/50"> ✓ Confirmar Pedido </button>
+    </div>
+   </div>
+  </div><!-- Overlay do Checkout - Fundo escuro que fecha o modal ao clicar -->
+  <div id="checkout-overlay" class="hidden fixed inset-0 bg-black/50 z-40" onclick="closeCheckout()"></div><!-- Carregamento do arquivo JavaScript separado com toda a lógica da aplicação -->
   <script src="app.js"></script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d09033570f9f612',t:'MTc3MTUzODE2OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d1e2548254a00cd',t:'MTc3MTc1OTc2Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

@@ -1,54 +1,281 @@
+/* =====================================================================
+   ARQUIVO: styles.css - VERSÃO ATUALIZADA
+   Estilos customizados para ADEGA IRMÃOS JG COM RASTREAMENTO
+   ===================================================================== */
+
+/* =====================================================================
+   SEÇÃO 1: VARIÁVEIS CSS (CSS CUSTOM PROPERTIES)
+   Define cores, fontes e valores reutilizáveis em toda a aplicação
+   ===================================================================== */
+
+:root {
+  /* Cores Principais */
+  --color-gold: #D4AF37;
+  --color-gold-light: #fbbf24;
+  --color-gold-dark: #92400e;
+  --color-bg-dark: #1a0a0a;
+  --color-bg-medium: #2d1810;
+  --color-text-primary: #fef3c7;
+  --color-text-secondary: #amber-200;
+  --color-accent: #f59e0b;
+  --color-accent-dark: #d97706;
+
+  /* Fontes */
+  --font-display: "Playfair Display", serif;
+  --font-body: "Montserrat", sans-serif;
+
+  /* Espaçamento */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Sombras */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
+
+  /* Transições */
+  --transition-fast: 200ms ease-in-out;
+  --transition-normal: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
+}
+
+/* =====================================================================
+   SEÇÃO 2: RESET E CONFIGURAÇÃO GLOBAL
+   Remove padrões do navegador e aplica base consistente
+   ===================================================================== */
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
-  box-sizing: border-box;
+  height: 100%;
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+  line-height: 1.6;
 }
 
-/* Tipografia */
-.font-display {
-  font-family: 'Playfair Display', serif;
-}
+/* =====================================================================
+   SEÇÃO 3: GRADIENTES CUSTOMIZADOS
+   Efeitos visuais sofisticados reutilizáveis
+   ===================================================================== */
 
-.font-body {
-  font-family: 'Montserrat', sans-serif;
-}
-
-/* Gradientes */
+/* Gradiente Dourado - Usado em botões e cards destacados */
 .gradient-gold {
-  background: linear-gradient(135deg, #D4AF37 0%, #F4E4BA 50%, #D4AF37 100%);
+  background: linear-gradient(135deg, #D4AF37 0%, #fbbf24 100%);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
 }
 
+/* Gradiente de Texto - Efeito de cor gradiente em textos */
 .text-gradient {
-  background: linear-gradient(135deg, #D4AF37, #F4E4BA);
+  background: linear-gradient(135deg, #D4AF37 0%, #f59e0b 100%);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
 }
 
-/* Efeitos de Card */
-.card-hover {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+/* Gradiente para Vinho - Padrão de fundo temático */
+.wine-pattern {
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.05) 0%,
+    rgba(212, 175, 55, 0.02) 50%,
+    rgba(212, 175, 55, 0.05) 100%
+  );
+  position: relative;
 }
 
-.card-hover:hover {
-  transform: translateY(-8px) scale(1.02);
+.wine-pattern::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 35px,
+    rgba(212, 175, 55, 0.02) 35px,
+    rgba(212, 175, 55, 0.02) 70px
+  );
+  pointer-events: none;
 }
 
-/* Efeito Glow dos Botões */
+/* =====================================================================
+   SEÇÃO 4: TIPOGRAFIA
+   Estilos para títulos, corpo de texto e labels
+   ===================================================================== */
+
+/* Classe para títulos da marca (Playfair Display) */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Classe para corpo de texto (Montserrat) */
+.font-body {
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+/* =====================================================================
+   SEÇÃO 5: COMPONENTES DE BOTÕES
+   Estilos para todos os tipos de botões da aplicação
+   ===================================================================== */
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition-normal);
+}
+
+/* Efeito Glow nos botões principais */
 .btn-glow {
   box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  transition: all var(--transition-normal);
 }
 
 .btn-glow:hover {
   box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
 }
 
-/* Animação de Flutuação */
+/* =====================================================================
+   SEÇÃO 6: COMPONENTES DE CARDS
+   Estilos para cards de produtos e conteúdo
+   ===================================================================== */
+
+/* Card Base - Estilo comum para todos os cards */
+.card {
+  border-radius: 1rem;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: linear-gradient(
+    135deg,
+    rgba(139, 69, 19, 0.1) 0%,
+    rgba(101, 50, 15, 0.1) 100%
+  );
+  transition: all var(--transition-normal);
+}
+
+/* Card Hover - Efeito ao passar o mouse */
+.card-hover {
+  transition: all var(--transition-normal);
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+  background: linear-gradient(
+    135deg,
+    rgba(139, 69, 19, 0.2) 0%,
+    rgba(101, 50, 15, 0.2) 100%
+  );
+}
+
+/* Card de Produto */
+.product-card {
+  overflow: hidden;
+}
+
+.product-card img {
+  transition: transform var(--transition-normal);
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+/* =====================================================================
+   SEÇÃO 7: ANIMAÇÕES
+   Keyframes e classes de animação reutilizáveis
+   ===================================================================== */
+
+/* Animação Float - Flutuação suave para cima e para baixo */
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Animação Pulse - Pulsação de opacidade (para ícones) */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Animação Shake - Tremor (para erros) */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-5px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Animação Slide In - Deslizar para dentro da tela */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.5s ease-out;
+}
+
+/* Animação Bounce - Pulo elástico (para badges e notificações) */
+@keyframes bounce {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -56,27 +283,393 @@ body {
   }
 }
 
-.float-animation {
-  animation: float 3s ease-in-out infinite;
+.animate-bounce {
+  animation: bounce 1s ease-in-out;
 }
 
-/* Animação Shimmer */
-@keyframes shimmer {
+/* ✨ NOVA: Animação de Movimento no Mapa - Carro se movendo */
+@keyframes moveAlong {
   0% {
-    background-position: -200% 0;
+    offset-distance: 0%;
   }
   100% {
-    background-position: 200% 0;
+    offset-distance: 100%;
   }
 }
 
-.shimmer {
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite;
+.animate-move-along {
+  animation: moveAlong 15s ease-in-out forwards;
 }
 
-/* Padrão de Vinho */
-.wine-pattern {
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+/* ✨ NOVA: Animação de Progresso - Barra preenchendo */
+@keyframes fillProgress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.animate-fill-progress {
+  animation: fillProgress 2s ease-out forwards;
+}
+
+/* ✨ NOVA: Animação de Pulsação do Marcador - Destaca o ponto de entrega */
+@keyframes pulseMarker {
+  0%,
+  100% {
+    r: 8px;
+    opacity: 1;
+  }
+  50% {
+    r: 12px;
+    opacity: 0.6;
+  }
+}
+
+.animate-pulse-marker {
+  animation: pulseMarker 2s ease-in-out infinite;
+}
+
+/* =====================================================================
+   SEÇÃO 8: FORMULÁRIOS
+   Estilos para inputs, textareas e elementos de formulário
+   ===================================================================== */
+
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+  transition: all var(--transition-normal);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(254, 243, 199, 0.4);
+}
+
+/* =====================================================================
+   SEÇÃO 9: ✨ NOVAS SEÇÕES - RASTREAMENTO E MAPA
+   Estilos específicos para o sistema de rastreamento de entrega
+   ===================================================================== */
+
+/* Container do Mapa de Entrega */
+#delivery-map {
+  width: 100%;
+  margin: 1rem 0;
+  border-radius: 1rem;
+}
+
+#delivery-map svg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* ✨ NOVO: Seção de Cálculo de Distância */
+#distance-calc-section {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(212, 175, 55, 0.02) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+#distance-calc-section h3 {
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+/* ✨ NOVO: Campo de Entrada de Distância */
+#delivery-distance {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--color-text-primary);
+  font-size: 1rem;
+  transition: all var(--transition-normal);
+}
+
+#delivery-distance:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+/* ✨ NOVO: Botão de Calcular Distância */
+#calculate-distance-btn {
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
+  color: #1a0a0a;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  margin-top: 1rem;
+  width: 100%;
+}
+
+#calculate-distance-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+#calculate-distance-btn:active {
+  transform: translateY(0);
+}
+
+/* ✨ NOVO: Informações de Distância (card verde de sucesso) */
+#distance-info {
+  margin-top: 1rem;
+  border-radius: 0.75rem;
+  animation: slideIn 0.3s ease-out;
+}
+
+/* ✨ NOVO: Seção de Rastreamento (oculta por padrão) */
+#delivery-tracking-section {
+  display: none;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(59, 130, 246, 0.02) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+#delivery-tracking-section h3 {
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+/* ✨ NOVO: Status do Rastreamento */
+#tracking-status {
+  margin-top: 1rem;
+  animation: slideIn 0.3s ease-out;
+}
+
+.tracking-progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(59, 130, 246, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.tracking-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6 0%, #0ea5e9 100%);
+  border-radius: 10px;
+  transition: width 100ms linear;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+/* =====================================================================
+   SEÇÃO 10: RESPONSIVIDADE
+   Ajustes para diferentes tamanhos de tela
+   ===================================================================== */
+
+/* Tablets (768px e acima) */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+
+  h1,
+  .font-display {
+    font-size: 1.5rem;
+  }
+
+  .wine-pattern {
+    min-height: 50vh;
+  }
+
+  .product-card {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Smartphones (640px e abaixo) */
+@media (max-width: 640px) {
+  html {
+    font-size: 13px;
+  }
+
+  body {
+    line-height: 1.5;
+  }
+
+  h1,
+  .font-display {
+    font-size: 1.25rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+  .wine-pattern {
+    min-height: 40vh;
+  }
+
+  #cart-sidebar {
+    width: 100%;
+    right: -100%;
+  }
+
+  #checkout-modal {
+    padding: 0;
+  }
+
+  #checkout-modal > div {
+    border-radius: 0;
+    max-height: 100vh;
+  }
+
+  .float-animation {
+    animation: float 8s ease-in-out infinite;
+  }
+
+  /* ✨ NOVO: Ajustes para Mapa em Mobile */
+  #delivery-map {
+    margin: 0.75rem 0;
+  }
+
+  #delivery-map svg {
+    max-height: 300px;
+  }
+
+  #distance-calc-section,
+  #delivery-tracking-section {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  #distance-calc-section h3,
+  #delivery-tracking-section h3 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
+/* =====================================================================
+   SEÇÃO 11: ACESSIBILIDADE
+   Melhora a experiência para usuários com necessidades especiais
+   ===================================================================== */
+
+/* Foco visível para navegação com teclado */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Reduz animações para usuários que preferem movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* =====================================================================
+   SEÇÃO 12: UTILITÁRIOS E ESTADOS
+   Classes auxiliares para controle de visibilidade e estado
+   ===================================================================== */
+
+/* Classe para ocultar elementos */
+.hidden {
+  display: none !important;
+}
+
+/* Classe para mostrar elementos com flex */
+.flex {
+  display: flex;
+}
+
+/* Classe para desabilitar interação */
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Classe para indicar carregamento */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.loading::after {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-left: 0.5em;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-top-color: var(--color-gold);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =====================================================================
+   SEÇÃO 13: SCROLL BAR (Customização do Scrollbar)
+   Estilo bonito para a barra de rolagem
+   ===================================================================== */
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(212, 175, 55, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.6);
+}
+
+/* Firefox */
+* {
+  scrollbar-color: rgba(212, 175, 55, 0.4) rgba(212, 175, 55, 0.05);
+  scrollbar-width: thin;
 }
